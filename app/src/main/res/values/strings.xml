@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">CHIT-CHAT</string>
     <string name="the_application_s_logo">the application\'s logo</string>
+    <string name="user_image">%1$s image</string>
+    <string name="add_chat">Add Chat</string>
+    <string name="add_new_channel">Add new channel</string>
+    <string name="channel_name">Channel name</string>
+    <string name="add_channel">Add channel</string>
 </resources>

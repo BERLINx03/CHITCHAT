@@ -5,12 +5,15 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.berlin.chit_chat.auth.presentation.login.LoginScreen
 import com.berlin.chit_chat.auth.presentation.register.RegisterScreen
-import com.berlin.chit_chat.chat.presentation.HomeScreen
+import com.berlin.chit_chat.chat.presentation.ChatScreen
+import com.berlin.chit_chat.home.presentation.HomeScreen
 import com.berlin.chit_chat.util.Screens
 
 /**
@@ -34,6 +37,17 @@ fun ChitChatApp(modifier: Modifier = Modifier) {
             }
             composable(Screens.HomeScreen.route){
                 HomeScreen(navController = navController)
+            }
+            composable("chat/{channelId}" , arguments = listOf(
+                navArgument("channelId"){
+                    type = NavType.StringType
+                }
+            )){
+                val channelId = it.arguments?.getString("channelId")!!
+                ChatScreen(
+                    navController = navController,
+                    channelId = channelId
+                )
             }
 
         }
